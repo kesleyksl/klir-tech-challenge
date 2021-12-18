@@ -8,7 +8,8 @@
     list-style: none;
     padding: 0 22px;
 }
-.totel {
+.total {
+    display: block;
     position: sticky;
     bottom: 0;
 }

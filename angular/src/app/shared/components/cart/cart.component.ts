@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { MatBottomSheetRef } from '@angular/material/bottom-sheet';
 import { Subject, takeUntil } from 'rxjs';
+
 import { Product } from '../../interfaces/product.interface';
 import { CartService } from '../../services/cart.service';
 
@@ -12,8 +12,7 @@ import { CartService } from '../../services/cart.service';
 export class CartComponent implements OnInit {
   private destroy$: Subject<any> = new Subject<any>();
   public products: Product[] = [];
-  constructor(private readonly cartService: CartService,
-              private _bottomSheetRef: MatBottomSheetRef<CartComponent>) {}
+  constructor(private readonly cartService: CartService) {}
 
   ngOnInit(): void {
     this.cartService
@@ -26,10 +25,6 @@ export class CartComponent implements OnInit {
             this.products = products;
           }
         )
-  }
-  close(){
-    console.log('das')
-    this._bottomSheetRef.dismiss()
   }
 
   ngOnDestroy(){

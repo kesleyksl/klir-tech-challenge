@@ -1,7 +1,7 @@
 <div>
 
     <h3 mat-subheader>Products</h3>
-    <ul class="text-left cart__list" (click)="close()">
+    <ul class="text-left cart__list">
         <li *ngFor="let product of products">
             <app-cart-item [product]="product"></app-cart-item>
         </li>

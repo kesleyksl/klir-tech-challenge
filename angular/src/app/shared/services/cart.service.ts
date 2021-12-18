@@ -39,6 +39,13 @@ export class CartService {
   cartTotalPrice(): Observable<number>{
     return this.cartTotal.asObservable();
   }
+
+  deleteProduct(id: number): void{
+    const index = this.cart.value.findIndex(p => p.id === id);
+    this.cart.value.splice(index, 1);
+    this.updateCart(this.cart.value);
+  }
+
   openCart(): void {
     this._bottomSheet.open(CartComponent,
       {
