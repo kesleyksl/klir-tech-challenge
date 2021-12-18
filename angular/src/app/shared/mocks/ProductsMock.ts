@@ -30,7 +30,7 @@ export const productMock: Product[] = [
         "name": "Product 4",
         "imagePath": "https://picsum.photos/300",
         "price": 4.37,
-        "promotion": promotionList[1]
+        "promotion": promotionList[0]
     },
     {
         "id": 5,
@@ -52,7 +52,7 @@ export const productMock: Product[] = [
         "name": "Product 7",
         "imagePath": "https://picsum.photos/300",
         "price": 5.14,
-        "promotion": promotionList[1]
+        "promotion": promotionList[0]
     },
     {
         "id": 8,
@@ -67,7 +67,7 @@ export const productMock: Product[] = [
         "name": "Product 9",
         "imagePath": "https://picsum.photos/300",
         "price": 5.03,
-        "promotion": promotionList[1]
+        "promotion": promotionList[0]
     },
     {
         "id": 10,
@@ -82,7 +82,7 @@ export const productMock: Product[] = [
         "name": "Product 11",
         "imagePath": "https://picsum.photos/300",
         "price": 5.45,
-        "promotion": promotionList[2]
+        "promotion": promotionList[1]
     },
     {
         "id": 12,
@@ -97,7 +97,7 @@ export const productMock: Product[] = [
         "name": "Product 13",
         "imagePath": "https://picsum.photos/300",
         "price": 6.72,
-        "promotion": promotionList[1]
+        "promotion": promotionList[0]
     },
     {
         "id": 14,
@@ -105,7 +105,7 @@ export const productMock: Product[] = [
         "name": "Product 14",
         "imagePath": "https://picsum.photos/300",
         "price": 4.07,
-        "promotion": promotionList[1]
+        "promotion": promotionList[0]
     },
     {
         "id": 15,
@@ -113,7 +113,7 @@ export const productMock: Product[] = [
         "name": "Product 15",
         "imagePath": "https://picsum.photos/300",
         "price": 6.51,
-        "promotion": promotionList[1]
+        "promotion": promotionList[0]
     },
     {
         "id": 16,
@@ -135,7 +135,7 @@ export const productMock: Product[] = [
         "name": "Product 18",
         "imagePath": "https://picsum.photos/300",
         "price": 4.67,
-        "promotion": promotionList[2]
+        "promotion": promotionList[1]
     },
     {
         "id": 19,
@@ -143,7 +143,7 @@ export const productMock: Product[] = [
         "name": "Product 19",
         "imagePath": "https://picsum.photos/300",
         "price": 4.55,
-        "promotion": promotionList[2]
+        "promotion": promotionList[1]
     },
     {
         "id": 20,
@@ -165,7 +165,7 @@ export const productMock: Product[] = [
         "name": "Product 22",
         "imagePath": "https://picsum.photos/300",
         "price": 5.38,
-        "promotion": promotionList[1]
+        "promotion": promotionList[0]
     },
     {
         "id": 23,
@@ -180,7 +180,7 @@ export const productMock: Product[] = [
         "name": "Product 24",
         "imagePath": "https://picsum.photos/300",
         "price": 4.41,
-        "promotion": promotionList[2]
+        "promotion": promotionList[1]
     },
     {
         "id": 25,
@@ -188,7 +188,7 @@ export const productMock: Product[] = [
         "name": "Product 25",
         "imagePath": "https://picsum.photos/300",
         "price": 4.2,
-        "promotion": promotionList[1]
+        "promotion": promotionList[0]
     },
     {
         "id": 26,
@@ -210,7 +210,7 @@ export const productMock: Product[] = [
         "name": "Product 28",
         "imagePath": "https://picsum.photos/300",
         "price": 4.53,
-        "promotion": promotionList[1]
+        "promotion": promotionList[0]
     },
     {
         "id": 29,
@@ -218,7 +218,7 @@ export const productMock: Product[] = [
         "name": "Product 29",
         "imagePath": "https://picsum.photos/300",
         "price": 4.64,
-        "promotion": promotionList[2]
+        "promotion": promotionList[1]
     },
     {
         "id": 30,
@@ -226,7 +226,7 @@ export const productMock: Product[] = [
         "name": "Product 30",
         "imagePath": "https://picsum.photos/300",
         "price": 5.23,
-        "promotion": promotionList[1]
+        "promotion": promotionList[0]
     },
     {
         "id": 31,
@@ -241,6 +241,6 @@ export const productMock: Product[] = [
         "name": "Product 32",
         "imagePath": "https://picsum.photos/300",
         "price": 4.54,
-        "promotion": promotionList[2]
+        "promotion": promotionList[1]
     }
 ];
