@@ -15,6 +15,7 @@ export class ProductCardComponent implements OnInit {
   }
 
   public addToCart(product: Product){
-    this.cartService.addProduct();
+    this.cartService.addProduct(product);
+    this.cartService.openCart();    
   }
 }

@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-import { MatBottomSheet } from '@angular/material/bottom-sheet';
-import { CartComponent } from './shared/components/cart/cart.component';
+import { take } from 'rxjs';
+import { CartService } from './shared/services/cart.service';
 
 @Component({
   selector: 'app-root',
@@ -8,12 +8,8 @@ import { CartComponent } from './shared/components/cart/cart.component';
 })
 export class AppComponent {
   title = 'app';
+  constructor(private readonly cartService: CartService){
+    this.cartService.getCart().pipe(take(1)).subscribe();
+  }
 
-  constructor(private _bottomSheet: MatBottomSheet) {}
-  ngOnInit(){
-    this.openBottomSheet();
-  }
-  openBottomSheet(): void {
-    this._bottomSheet.open(CartComponent);
-  }
 }

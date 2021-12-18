@@ -1,1 +1,7 @@
-<p>cart-icon works!</p>
+<button mat-icon-button 
+        (click)="openCart()">
+    <mat-icon   [matBadge]="count$ | async" 
+                matBadgePosition="after" 
+                matBadgeColor="accent" 
+                aria-hidden="false">shopping_cart</mat-icon>
+</button>

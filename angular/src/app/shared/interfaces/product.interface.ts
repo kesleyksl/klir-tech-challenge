@@ -6,8 +6,8 @@ export interface Product{
     name: string;
     price: number;
     description: string;
-    total?: number;
-    count?: number;
+    total: number;
+    count: number;
     imagePath: string;
     promotion?: Promotion;
 }

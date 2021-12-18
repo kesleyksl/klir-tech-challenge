@@ -22,8 +22,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     RouterModule.forRoot([
       { 
         path: '', 
-        component: 
-        HomeComponent, pathMatch: 'full',
+        component: HomeComponent, 
+        pathMatch: 'full',
         children: [
           {
             path: '',

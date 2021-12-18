@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { MatBottomSheet } from '@angular/material/bottom-sheet';
+import { CartComponent } from '../cart/cart.component';
 
 @Component({
   selector: 'app-nav-menu',
@@ -7,6 +9,7 @@ import { Component } from '@angular/core';
 })
 export class NavMenuComponent {
   isExpanded = false;
+  constructor() {}
 
   collapse() {
     this.isExpanded = false;

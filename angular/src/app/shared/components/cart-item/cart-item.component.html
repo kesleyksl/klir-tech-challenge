@@ -1,6 +1,5 @@
 <mat-card    class="item">
     <span   class="item__image">
-
         <img    [src]="product.imagePath">
     </span>
 
@@ -12,7 +11,9 @@
         <h4 class="item__name mb-0">{{product.name}}</h4>
         <h5 class="item__price">{{product.price | currency:'EUR':true}}</h5>
         <div class="item__description">            
-            <span>Quantity: </span>{{product.count}}
+            <span>Quantity: </span>{{product.count}} <br>
+            <span>Total Price: </span>{{product.total | currency:'EUR':true}} <br>
+            <span *ngIf="product.promotion">Promotion: </span>{{product.promotion?.name}}
         </div>
     </div>
 </mat-card>

@@ -1,6 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Product } from '../../interfaces/product.interface';
-import { promotionList } from '../../mocks/PrommotionsMock';
 
 @Component({
   selector: 'app-cart-item',

@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
+import { CartService } from '../../services/cart.service';
 
 @Component({
   selector: 'app-cart-icon',
@@ -6,10 +8,17 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./cart-icon.component.css']
 })
 export class CartIconComponent implements OnInit {
-
-  constructor() { }
+  public count$: Observable<number>;
+  constructor(private readonly cartService: CartService) {
+    this.count$ = this.cartService.cartItemsCount();
+   }
 
   ngOnInit(): void {
   }
+
+  public openCart() {
+    this.cartService.openCart();
+  }
+
 
 }

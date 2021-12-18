@@ -1,15 +1,16 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
-
+import { CartIconComponent } from './components/cart-icon/cart-icon.component';
+import { CartItemComponent } from './components/cart-item/cart-item.component';
+import { CartComponent } from './components/cart/cart.component';
 import { HomeComponent } from './components/home/home.component';
 import { NavMenuComponent } from './components/nav-menu/nav-menu.component';
 import { MaterialModule } from './material.module';
 import { TruncatePipe } from './pipes/truncate.pipe';
-import { CartComponent } from './components/cart/cart.component';
 import { CartService } from './services/cart.service';
-import { CartItemComponent } from './components/cart-item/cart-item.component';
-import { CartIconComponent } from './components/cart-icon/cart-icon.component';
+import { CartTotalPriceComponent } from './components/cart-total-price/cart-total-price.component';
+
 
 
 
@@ -20,12 +21,13 @@ import { CartIconComponent } from './components/cart-icon/cart-icon.component';
     TruncatePipe,
     CartComponent,
     CartIconComponent,
-    CartItemComponent
+    CartItemComponent,
+    CartTotalPriceComponent
   ],
   imports: [
     CommonModule,
     RouterModule,
-    MaterialModule
+    MaterialModule,
   ],
   exports: [
     MaterialModule,
