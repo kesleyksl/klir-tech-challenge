@@ -6,6 +6,10 @@ import { HomeComponent } from './components/home/home.component';
 import { NavMenuComponent } from './components/nav-menu/nav-menu.component';
 import { MaterialModule } from './material.module';
 import { TruncatePipe } from './pipes/truncate.pipe';
+import { CartComponent } from './components/cart/cart.component';
+import { CartService } from './services/cart.service';
+import { CartItemComponent } from './components/cart-item/cart-item.component';
+import { CartIconComponent } from './components/cart-icon/cart-icon.component';
 
 
 
@@ -13,7 +17,10 @@ import { TruncatePipe } from './pipes/truncate.pipe';
   declarations: [
     HomeComponent,
     NavMenuComponent,
-    TruncatePipe
+    TruncatePipe,
+    CartComponent,
+    CartIconComponent,
+    CartItemComponent
   ],
   imports: [
     CommonModule,
@@ -24,7 +31,11 @@ import { TruncatePipe } from './pipes/truncate.pipe';
     MaterialModule,
     HomeComponent,
     NavMenuComponent,
-    TruncatePipe
+    TruncatePipe,
+    CartIconComponent
+  ],
+  providers: [
+    CartService
   ]
 })
 export class SharedModule { }

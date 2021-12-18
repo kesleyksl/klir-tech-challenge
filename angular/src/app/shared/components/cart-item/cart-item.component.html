@@ -1,0 +1,18 @@
+<mat-card    class="item">
+    <span   class="item__image">
+
+        <img    [src]="product.imagePath">
+    </span>
+
+    <button class="item__delete"
+            mat-icon-button>
+        <mat-icon >delete</mat-icon>
+    </button>
+    <div class="item__info">
+        <h4 class="item__name mb-0">{{product.name}}</h4>
+        <h5 class="item__price">{{product.price | currency:'EUR':true}}</h5>
+        <div class="item__description">            
+            <span>Quantity: </span>{{product.count}}
+        </div>
+    </div>
+</mat-card>

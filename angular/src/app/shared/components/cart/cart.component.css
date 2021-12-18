@@ -1,0 +1,15 @@
+
+.cart__list {
+    display: -webkit-box;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    flex-direction: column;
+    list-style: none;
+    padding: 0 22px;
+}
+
+ul {
+    margin-top: 0;
+    margin-bottom: 1rem;
+}
