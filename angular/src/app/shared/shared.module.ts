@@ -1,9 +1,10 @@
-import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { MaterialModule } from './material.module';
+import { NgModule } from '@angular/core';
+import { RouterModule } from '@angular/router';
+
 import { HomeComponent } from './components/home/home.component';
 import { NavMenuComponent } from './components/nav-menu/nav-menu.component';
-import { RouterModule } from '@angular/router';
+import { MaterialModule } from './material.module';
 
 
 

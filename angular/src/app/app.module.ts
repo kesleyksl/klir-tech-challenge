@@ -7,6 +7,8 @@ import { RouterModule } from '@angular/router';
 import { AppComponent } from './app.component';
 import { SharedModule } from './shared/shared.module';
 import { HomeComponent } from './shared/components/home/home.component';
+import { ProductListComponent } from './modules/product/product-list/product-list.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 
 @NgModule({
@@ -18,9 +20,21 @@ import { HomeComponent } from './shared/components/home/home.component';
     HttpClientModule,
     FormsModule,
     RouterModule.forRoot([
-      { path: '', component: HomeComponent, pathMatch: 'full' },
+      { 
+        path: '', 
+        component: 
+        HomeComponent, pathMatch: 'full',
+        children: [
+          {
+            path: '',
+            component: ProductListComponent
+          }
+        ]
+      
+      },
     ]),
-    SharedModule
+    SharedModule,
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

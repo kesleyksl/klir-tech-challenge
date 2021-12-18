@@ -1,0 +1,16 @@
+<mat-card class="product">
+    <img    mat-card-image 
+            [src]="product.imagePath" 
+            [alt]="product.name">
+    <p class="product__promotion" *ngIf="product.promotion">{{ product?.promotion?.name}}</p>
+
+    <mat-card-content>
+      <p class="product__name">{{product.name}}</p>
+      <p class="product__price">{{ product.price | currency: 'EUR':true}}</p>
+    </mat-card-content>
+    <mat-card-actions>      
+      <button   mat-raised-button 
+                color="primary"
+                class="product__cart-button">Add to Cart</button>
+    </mat-card-actions>
+</mat-card>

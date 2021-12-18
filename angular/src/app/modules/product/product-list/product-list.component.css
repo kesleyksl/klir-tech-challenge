@@ -1,0 +1,15 @@
+.list{
+    float: none;
+    display: grid;
+    grid-template-columns: repeat(auto-fill,minmax(320px,400px));
+    grid-column-gap: 1.5%;
+    grid-row-gap: 50px;
+    grid-template-columns: repeat(2,1fr);
+}
+
+
+@media (min-width: 1024px){
+    .list {
+        grid-template-columns: repeat(4,1fr);
+    }
+}
