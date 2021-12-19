@@ -1,18 +1,9 @@
-<header>
-  <nav
-    class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3"
-  >
-    <div class="container">
-      <a class="navbar-brand" [routerLink]="['/']">KlirTechChallenge</a>
-      <div
-        class=" "
-        [ngClass]="{ show: isExpanded }">
-        <ul class="flex-grow">
-          <li class="nav-item" [routerLinkActive]="['link-active']">
-            <app-cart-icon></app-cart-icon>
-          </li>
-        </ul>
-      </div>
-    </div>
-  </nav>
+
+<header >
+
+  <mat-toolbar class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3 toolbar mat-elevation-z4">
+    <a class="navbar-brand" [routerLink]="['/']">KlirTechChallenge</a>
+    
+    <app-cart-icon></app-cart-icon>
+  </mat-toolbar>
 </header>
