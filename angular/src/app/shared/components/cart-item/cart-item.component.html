@@ -12,7 +12,7 @@
         <h4 class="item__name mb-0">{{product.name}}</h4>
         <h5 class="item__price">{{product.price | currency:'EUR':true}}</h5>
         <div class="item__description">            
-            <span>Quantity: </span>{{product.count}} <br>
+            <app-alter-product-quantity [product]="product"></app-alter-product-quantity> <br>
             <span>Total Price: </span>{{product.total | currency:'EUR':true}} <br>
             <span *ngIf="product.promotion">Promotion: </span>{{product.promotion?.name}}
         </div>

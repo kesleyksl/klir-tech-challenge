@@ -1,0 +1,16 @@
+<div class="quantity text-center">
+    <button class="minus"
+            (click)="removeProduct()"
+            mat-button>
+        <mat-icon>remove</mat-icon>
+    </button>
+    <input  type="text" 
+            readonly 
+            class="value" 
+            [value]="product.count" />
+    <button class="plus"
+            (click)="addProduct()"
+            mat-button>
+        <mat-icon>add</mat-icon>
+    </button>
+  </div>

@@ -11,6 +11,7 @@ import { StorageService } from './storage.service';
   providedIn: 'root'
 })
 export class CartService {
+
   private cartKey: string = 'cart';
   private cart: BehaviorSubject<Product[]> = new BehaviorSubject<Product[]>([]);
   private cartCountItems: BehaviorSubject<number> = new BehaviorSubject<number>(0);
@@ -28,7 +29,7 @@ export class CartService {
     if (!this.existsProduct(product.id)) {
       this.cart.value.push(product);
     }
-    this.updateItem(product);
+    this.updateAddItem(product);
     this.updateCart(this.cart.value);
   }
 
@@ -52,6 +53,23 @@ export class CartService {
         closeOnNavigation: true,
         disableClose: false,
       });
+  }
+
+  removeProduct(product: Product) {
+    if (!this.existsProduct(product.id))
+      return
+    const index =  this.cart.value.findIndex(p => p.id === product.id);
+    const item =  this.cart.value[index];
+
+    if(this.lastProduct(item)) {
+      this.deleteProduct(item.id);
+    }
+    else {
+      item.count--; 
+      this.cart.value[index] = item;
+      this.updateItemTotal(index);
+      this.updateCart(this.cart.value);
+    }
   }
 
   private existsProduct(id: number): boolean {
@@ -81,7 +99,7 @@ export class CartService {
     return total;
   }
 
-  private updateItem(product: Product): void {
+  private updateAddItem(product: Product): void {
     const index = this.cart.value.findIndex(p => p.id === product.id);
     if (index >= 0) {
       this.updateItemCount(index);
@@ -89,6 +107,9 @@ export class CartService {
     }
   }
 
+  private lastProduct(product: Product): boolean {
+    return product.count === 1;
+  }
   private updateItemCount(index: number): void {
     this.cart.value[index].count++;
   }

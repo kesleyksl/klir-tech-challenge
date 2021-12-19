@@ -1,0 +1,29 @@
+.quantity{
+	border: 1px solid #ddd;
+	height: 35px;
+  width: fit-content;
+}
+.quantity button{
+  min-width: 40px;
+  width: 40px;
+  padding: 0;
+	height: 100%;
+	float: left;
+  border-radius: 0;
+	cursor: pointer;
+}
+
+.minus{
+	border-right: 1px solid #ddd;
+}
+.plus{
+	border-left: 1px solid #ddd;
+}
+.value{
+	border: none;
+	padding: 5px;
+	width: 35px;
+	height: 100%;
+	float: left;
+	text-align: center
+}

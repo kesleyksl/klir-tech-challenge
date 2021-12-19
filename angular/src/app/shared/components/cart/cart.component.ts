@@ -26,7 +26,10 @@ export class CartComponent implements OnInit {
           }
         )
   }
-
+  public trackByFn(index: number, item: Product) {
+    return item.id;
+  }
+  
   ngOnDestroy(){
     this.destroy$.next(null);
     this.destroy$.complete();

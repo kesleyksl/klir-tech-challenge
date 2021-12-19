@@ -10,6 +10,7 @@ import { MaterialModule } from './material.module';
 import { TruncatePipe } from './pipes/truncate.pipe';
 import { CartService } from './services/cart.service';
 import { CartTotalPriceComponent } from './components/cart-total-price/cart-total-price.component';
+import { AlterProductQuantityComponent } from './components/alter-product-quantity/alter-product-quantity.component';
 
 
 
@@ -22,7 +23,8 @@ import { CartTotalPriceComponent } from './components/cart-total-price/cart-tota
     CartComponent,
     CartIconComponent,
     CartItemComponent,
-    CartTotalPriceComponent
+    CartTotalPriceComponent,
+    AlterProductQuantityComponent
   ],
   imports: [
     CommonModule,

@@ -38,7 +38,7 @@
     right: 0;
     position: absolute;
     text-align: center;
-    top: 30px;
+    top: 0px;
 }
 .item__info {
     -webkit-box-flex: 1;
