@@ -1,7 +1,11 @@
+import { PromotionEnum } from "../enums/promotion-enum";
+
 export interface Promotion {
     id: number;
-    minimalQuantity: number;
-    name: string;
-    description: string;
+    type: PromotionEnum,
+    minimalQuantity: number,
+    forPrice?: number,
+    name: string,
+    description: string,
   }
   

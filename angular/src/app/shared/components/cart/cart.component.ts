@@ -29,7 +29,9 @@ export class CartComponent implements OnInit {
   public trackByFn(index: number, item: Product) {
     return item.id;
   }
-  
+  public close(){
+    this.cartService.closeCart();
+  }
   ngOnDestroy(){
     this.destroy$.next(null);
     this.destroy$.complete();

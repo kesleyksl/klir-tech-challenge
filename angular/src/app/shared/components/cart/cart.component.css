@@ -1,12 +1,17 @@
-
 .cart__list {
-    display: -webkit-box;
     display: flex;
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
     flex-direction: column;
     list-style: none;
-    padding: 0 22px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 0;
+}
+.empty-cart-icon{
+    font-size: 3rem;
+    width: 3rem;
+    height: 3rem;
 }
 .total {
     display: block;

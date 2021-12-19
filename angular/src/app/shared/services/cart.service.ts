@@ -26,11 +26,15 @@ export class CartService {
   }
 
   addProduct(product: Product): void {
-    if (!this.existsProduct(product.id)) {
-      this.cart.value.push(product);
+    const item = this.clone(product);
+    if (!this.existsProduct(item.id)) {
+      this.cart.value.push(item);
     }
-    this.updateAddItem(product);
+    this.updateAddItem(item);
     this.updateCart(this.cart.value);
+  }
+  clone(product: Product) {
+    return JSON.parse(JSON.stringify(product));
   }
 
   cartItemsCount(): Observable<number> {
@@ -53,6 +57,9 @@ export class CartService {
         closeOnNavigation: true,
         disableClose: false,
       });
+  }
+  closeCart(): void {
+    this._bottomSheet.dismiss();
   }
 
   removeProduct(product: Product) {
@@ -122,11 +129,11 @@ export class CartService {
       return;
     }
     if (this.activePromotion(item)) {
-      if (item.promotion.id === PromotionEnum.GET_ONE_FREE) {
-        item.total = this.getFree(item);
+      if (item.promotion.type === PromotionEnum.GET_ONE_FREE) {
+        item.total = this.getOneFree(item);
       }
-      if (item.promotion.id === PromotionEnum.THREE_FOR_TEN) {
-        item.total = this.getForTen(item);
+      if (item.promotion.type === PromotionEnum.FOR_TEN) {
+        item.total = this.getItemsForPrice(item);
       }
     }
     else {
@@ -143,24 +150,29 @@ export class CartService {
     this.cart.value[index] = item;
   }
 
-  private getFree(product: Product): number {
+  private getOneFree(product: Product): number {
     if (!product.promotion)
-      return 0;
+      return  product.total;
+    
+    const freeItems = Math.floor(product.count / product.promotion.minimalQuantity);
+    
     if (product.count % product?.promotion?.minimalQuantity === 0) {
-      return (product.price * product.count) / product?.promotion?.minimalQuantity;
-    } else {
-      return ((product.price * (product.count - 1)) / product?.promotion?.minimalQuantity) + product.price;
+      return (product.price * product.count) - (freeItems * product.price);
+    } 
+    else {
+      return product.price * (product.count - freeItems);
     }
   }
 
-  private getForTen(product: Product): number {
-    if (!product.promotion)
-      return 0;
+  private getItemsForPrice(product: Product): number {
+    if (!product.promotion || !product.promotion.forPrice)
+      return product.total;
 
     if (product.count % product?.promotion?.minimalQuantity === 0) {
-      return (product.count / product?.promotion?.minimalQuantity) * 10;
+      return (product.count / product?.promotion?.minimalQuantity) * product.promotion.forPrice;
     } else {
-      return ((Math.floor(product.count / product?.promotion?.minimalQuantity) * 10) + ((product.count % product?.promotion?.minimalQuantity) * product.price));
+      const promotionItems = Math.floor(product.count / product.promotion.minimalQuantity);
+      return ((promotionItems * product.promotion.forPrice) + ((product.count % product?.promotion?.minimalQuantity) * product.price));
     }
   }
 }
