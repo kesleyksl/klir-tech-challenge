@@ -1,8 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { Subject, takeUntil } from 'rxjs';
 
+import { ProductCart } from '../../interfaces/cart-product.interface';
 import { Product } from '../../interfaces/product.interface';
 import { CartService } from '../../services/cart.service';
+
 
 @Component({
   selector: 'app-cart',
@@ -11,7 +13,7 @@ import { CartService } from '../../services/cart.service';
 })
 export class CartComponent implements OnInit {
   private destroy$: Subject<any> = new Subject<any>();
-  public products: Product[] = [];
+  public products: ProductCart[] = [];
   constructor(private readonly cartService: CartService) {}
 
   ngOnInit(): void {

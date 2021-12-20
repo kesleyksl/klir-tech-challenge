@@ -1,9 +1,10 @@
 import { Injectable } from '@angular/core';
 import { MatBottomSheet } from '@angular/material/bottom-sheet';
 import { BehaviorSubject, Observable } from 'rxjs';
+
 import { CartComponent } from '../components/cart/cart.component';
 import { PromotionEnum } from '../enums/promotion-enum';
-
+import { ProductCart } from '../interfaces/cart-product.interface';
 import { Product } from '../interfaces/product.interface';
 import { StorageService } from './storage.service';
 
@@ -13,20 +14,20 @@ import { StorageService } from './storage.service';
 export class CartService {
 
   private cartKey: string = 'cart';
-  private cart: BehaviorSubject<Product[]> = new BehaviorSubject<Product[]>([]);
+  private cart: BehaviorSubject<ProductCart[]> = new BehaviorSubject<ProductCart[]>([]);
   private cartCountItems: BehaviorSubject<number> = new BehaviorSubject<number>(0);
   private cartTotal: BehaviorSubject<number> = new BehaviorSubject<number>(0);
   constructor(private storage: StorageService, 
               private _bottomSheet: MatBottomSheet) { }
 
-  getCart():Observable<Product[]> {
+  getCart():Observable<ProductCart[]> {
     let storageCart: any = this.storage.getItem(this.cartKey);
     this.updateCart(storageCart && Array.isArray(storageCart) ? storageCart : []);
     return this.cart.asObservable();
   }
 
   addProduct(product: Product): void {
-    const item = this.clone(product);
+    const item: ProductCart = {...this.clone(product), count: 0, total: 0};
     if (!this.existsProduct(item.id)) {
       this.cart.value.push(item);
     }
@@ -62,7 +63,7 @@ export class CartService {
     this._bottomSheet.dismiss();
   }
 
-  removeProduct(product: Product) {
+  removeProduct(product: ProductCart) {
     if (!this.existsProduct(product.id))
       return
     const index =  this.cart.value.findIndex(p => p.id === product.id);
@@ -83,7 +84,7 @@ export class CartService {
     return !!this.cart.value.find(p => p.id === id);
   }
 
-  private updateCart(products: Product[]): void {
+  private updateCart(products: ProductCart[]): void {
     this.cart.next(products);
     this.storage.setItem(this.cartKey, this.cart.value);
     this.cartCountItems.next(this.countItems());
@@ -106,7 +107,7 @@ export class CartService {
     return total;
   }
 
-  private updateAddItem(product: Product): void {
+  private updateAddItem(product: ProductCart): void {
     const index = this.cart.value.findIndex(p => p.id === product.id);
     if (index >= 0) {
       this.updateItemCount(index);
@@ -114,7 +115,7 @@ export class CartService {
     }
   }
 
-  private lastProduct(product: Product): boolean {
+  private lastProduct(product: ProductCart): boolean {
     return product.count === 1;
   }
   private updateItemCount(index: number): void {
@@ -142,15 +143,15 @@ export class CartService {
     this.updateItemInPosition(index, item);
   }
 
-  private activePromotion(item: Product): boolean{
+  private activePromotion(item: ProductCart): boolean{
     return item.promotion? item.count >= item.promotion.minimalQuantity:false;
   }
 
-  private updateItemInPosition(index: number, item: Product): void{
+  private updateItemInPosition(index: number, item: ProductCart): void{
     this.cart.value[index] = item;
   }
 
-  private getOneFree(product: Product): number {
+  private getOneFree(product: ProductCart): number {
     if (!product.promotion)
       return  product.total;
     
@@ -164,7 +165,7 @@ export class CartService {
     }
   }
 
-  private getItemsForPrice(product: Product): number {
+  private getItemsForPrice(product: ProductCart): number {
     if (!product.promotion || !product.promotion.forPrice)
       return product.total;
 
