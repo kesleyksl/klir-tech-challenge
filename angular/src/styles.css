@@ -21,3 +21,18 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.mat-bottom-sheet-container {
+
+  padding: 0 16px !important;
+}
+@media (min-width: 960px){
+  .mat-bottom-sheet-container {
+    right: 0;
+    position: absolute;
+    bottom: 0;
+    max-height: 100Vh !important;
+    height: 100%;
+    padding: 0 16px;
+  }
+}

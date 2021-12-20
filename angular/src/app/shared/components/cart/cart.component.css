@@ -1,3 +1,23 @@
+.cart {
+    height: fit-content;
+    min-height: 100%;
+}
+.header {
+    position: sticky;
+    top: 0;
+    z-index: 2;
+    background: white;
+    padding: 1rem 0;
+}
+.products {
+    height: 100%;
+}
+
+.empty-cart-icon {
+    font-size: 3rem;
+    width: 3rem;
+    height: 3rem;
+}
 .cart__list {
     display: flex;
     -webkit-box-orient: vertical;
@@ -8,15 +28,12 @@
     margin: 0 auto;
     padding: 0;
 }
-.empty-cart-icon{
-    font-size: 3rem;
-    width: 3rem;
-    height: 3rem;
-}
 .total {
     display: block;
     position: sticky;
     bottom: 0;
+    left: 0;
+    width: 100%;
 }
 ul {
     margin-top: 0;
